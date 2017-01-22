@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "AutoXGBoost"
+authors = [{name = "KOLANICH"}]
+description = "Semi-automatically trains, optimizes, converts and imports XGBoost models."
+readme = "ReadMe.md"
+keywords = ["xgboost", "data science", "machine learning"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+dependencies = [
+	"numpy",
+	"scipy",
+	"pandas",
+	"scikit_learn",
+	"tqdm", # @ git+https://github.com/tqdm/tqdm.git
+	"lazily", # @ git+https://codeberg.org/KOLANICH-libs/lazily.py.git
+	"xgboost",
+	"Chassis", # @ git+https://codeberg.org/KOLANICH-ML/Chassis.py.git
+	"pathvalidate", # @ git+https://github.com/thombashi/pathvalidate.git
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://codeberg.org/KOLANICH-ML/AutoXGBoost.py"
+
+[project.optional-dependencies]
+"python-models-export" = [
+	"pyxgboost", # @ https://codeberg.org/KOLANICH-ML/pyxgboost"
+]
+"hyperparams-optimization" = [
+	"UniOpt", # @ git+https://codeberg.org/KOLANICH-ML/UniOpt.py.git
+]
+"dataset-rebalancing" = [
+	"imbalanced_learn" # @ git+https://github.com/scikit-learn-contrib/imbalanced-learn.git
+]
+
+[tool.setuptools]
+zip-safe = true
+packages = ["AutoXGBoost", "AutoXGBoost.core"]
+
+
+[tool.setuptools_scm]
