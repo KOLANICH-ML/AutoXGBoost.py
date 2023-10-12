@@ -13,6 +13,8 @@ from .crossvalidation import getLastMetricFromMetricsDict, XGBoostNativeCV
 from .utils import parseDict, serializeDict
 import warnings
 
+warnings.warn("We have moved from M$ GitHub to https://codeberg.org/KOLANICH-ML/AutoXGBoost.py , read why on https://codeberg.org/KOLANICH/Fuck-GuanTEEnomo .")
+
 gridSpecModule = lazyImport(".gridSpec")
 
 
